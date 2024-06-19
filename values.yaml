@@ -1,0 +1,25 @@
+
+java_app_deployment:
+  name: java-app-deployment
+  replicas: 3
+  template:
+   metadata:
+     name: java-app
+   
+  labels:
+    app: java-app
+  containers:
+    image: docker.io/vpob210/java-app:second-try
+    name: main
+
+java_app_service:
+  name: j-app-service
+  ports:
+    protocol: TCP
+    port: 8080
+    targetPort: 8080
+    nodePort: 30080
+  type: NodePort
+
+serviceAccount:
+  create: false

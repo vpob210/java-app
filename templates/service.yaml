@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.java_app_service.name }}
+spec:
+  selector:
+    app: {{ .Values.java_app_deployment.labels.app }}
+  ports:
+  - protocol: {{ .Values.java_app_service.ports.protocol }}
+    port: {{ .Values.java_app_service.ports.port }}
+    targetPort: {{ .Values.java_app_service.ports.targetPort }}
+    nodePort: {{ .Values.java_app_service.ports.nodePort }}
+  type: {{ .Values.java_app_service.type }}

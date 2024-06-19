@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: {{ .Values.java_app_deployment.name }}
+spec:
+ replicas: {{ .Values.java_app_deployment.replicas }}
+ selector:
+   matchLabels:
+     app: {{ .Values.java_app_deployment.labels.app }}
+ template:
+   metadata:
+     name: {{ .Values.java_app_deployment.template.metadata.name }}
+     labels:
+       app: {{ .Values.java_app_deployment.labels.app }}
+   spec:
+    containers:
+    - image: {{ .Values.java_app_deployment.containers.image }}
+      name: {{ .Values.java_app_deployment.containers.name }}
