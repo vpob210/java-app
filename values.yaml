@@ -1,7 +1,7 @@
 
 java_app_deployment:
   name: java-app-deployment
-  replicas: 3
+  replicas: 4
   template:
    metadata:
      name: java-app
